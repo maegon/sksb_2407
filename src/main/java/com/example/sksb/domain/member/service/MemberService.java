@@ -1,17 +1,16 @@
 package com.example.sksb.domain.member.service;
 
-import com.example.sksb.global.exceptions.GlobalException;
 import com.example.sksb.domain.member.entity.Member;
 import com.example.sksb.domain.member.repository.MemberRepository;
+import com.example.sksb.global.exceptions.GlobalException;
 import com.example.sksb.global.rsData.RsData;
-import groovy.transform.Final;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.nio.file.FileAlreadyExistsException;
 import java.util.Optional;
 
 @Service
@@ -40,14 +39,11 @@ public class MemberService {
     }
 
     @Getter
+    @AllArgsConstructor
     public static class AuthAndMakeTokensResponseBody {
+        private Member member;
         private String accessToken;
         private String refreshToken;
-
-        public AuthAndMakeTokensResponseBody(String accessToken, String refreshToken) {
-            this.accessToken = accessToken;
-            this.refreshToken = refreshToken;
-        }
     }
 
     @Transactional
@@ -64,7 +60,7 @@ public class MemberService {
         return RsData.of(
                 "200-1",
                 "로그인 성공",
-                new AuthAndMakeTokensResponseBody(accessToken, refreshToken)
+                new AuthAndMakeTokensResponseBody(member, accessToken, refreshToken)
         );
     }
 }
