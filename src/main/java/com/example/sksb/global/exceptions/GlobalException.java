@@ -1,4 +1,4 @@
-package com.example.sksb.domain.global.exceptions;
+package com.example.sksb.global.exceptions;
 
 public class GlobalException extends RuntimeException {
     public GlobalException(String resultCode, String msg) {

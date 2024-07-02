@@ -1,4 +1,4 @@
-package com.example.sksb.domain.global.initData;
+package com.example.sksb.global.initData;
 
 import com.example.sksb.domain.member.entity.Member;
 import com.example.sksb.domain.member.service.MemberService;
