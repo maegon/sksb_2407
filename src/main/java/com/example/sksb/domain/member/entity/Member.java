@@ -31,10 +31,11 @@ public class Member {
     private LocalDateTime modifyDate;
     private String username;
     private String password;
+    private String refreshToken;
     
     // 사용자의 권한을 설정할 때 사용 (롤 멤버면 기본 권한을 부여)
     public List<String> getAuthoritiesAsStringList() {
         return List.of("ROLE_MEMBER");
     }
-    
+
 }

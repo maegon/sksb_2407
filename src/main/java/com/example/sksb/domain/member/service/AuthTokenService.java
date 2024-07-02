@@ -55,4 +55,12 @@ public class AuthTokenService {
                 "authorities", payload.get("authorities", List.class)
         );
     }
+    public boolean validateToken(String token) {
+        try{
+            Jwts.parser().setSigningKey(AppConfig.getJwtSecretKey()).build().parseClaimsJws(token);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
