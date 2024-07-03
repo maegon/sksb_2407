@@ -22,9 +22,9 @@ public class Rq {
     private final MemberService memberService;
     private final HttpServletRequest req;
     private final HttpServletResponse resp;
-    private Member member;
-    private EntityManager entityManager;
+    private final EntityManager entityManager;
 
+    private Member member;
     // 일반(Ajax 인지 확인)
     public boolean isAjax() {
         if ("application/json".equals(req.getHeader("Accept"))) return true;

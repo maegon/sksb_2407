@@ -35,9 +35,6 @@ public class ApiSecurityConfig {
                         sessionManagement -> sessionManagement
                                 .disable()
                 )
-                .cors(cors -> cors
-                        .configure(http)
-                )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class
                 );
         return http.build();
