@@ -60,13 +60,10 @@ public class MemberService {
     public RsData<AuthAndMakeTokensResponseBody> authAndMakeTokens(String username, String password) {
         Member member = findByUsername(username)
                 .orElseThrow(() -> new GlobalException("400-1", "해당 유저가 존재하지 않습니다."));
-
         if (!passwordMatches(member, password))
             throw new GlobalException("400-2", "비밀번호가 일치하지 않습니다.");
-
         String refreshToken = member.getRefreshToken();
         String accessToken = authTokenService.genAccessToken(member);
-
         return RsData.of(
                 "200-1",
                 "로그인 성공",
@@ -77,7 +74,7 @@ public class MemberService {
     public SecurityUser getUserFromAccessToken(String accessToken) {
         Map<String, Object> payloadBody = authTokenService.getDataFrom(accessToken);
 
-        long id = (int) payloadBody.get("id");
+        long id = (Integer) payloadBody.get("id");
         String username = (String) payloadBody.get("username");
         List<String> authorities = (List<String>) payloadBody.get("authorities");
 

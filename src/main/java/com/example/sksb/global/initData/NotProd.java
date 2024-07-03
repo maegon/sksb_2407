@@ -1,10 +1,8 @@
 package com.example.sksb.global.initData;
 
-import com.example.sksb.domain.member.entity.Member;
 import com.example.sksb.domain.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationRunner;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

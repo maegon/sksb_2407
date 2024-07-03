@@ -18,7 +18,7 @@
       return;
     }
     
-    fetch('http://localhost:8090/api/v1/members/lgoin', {
+    fetch('http://localhost:8090/api/v1/members/login', {
       method: "POST",
       credentials: 'include',
       headers: {
